@@ -14,6 +14,7 @@ export class GetRequest extends React.Component {
         fetch('https://api.hashdex.io/prod/marketdata/v1/index/HDAI/last')
             .then(response => response.json())
             .then(data => this.setState({ homes: data.constituents }));
+
     }
 
     render() {

@@ -3,7 +3,16 @@ import GetRequest from './GetRequest.js';
 import './App.css';
 
 const Binance = require('node-binance-api');
-const binance = new Binance()
+const binance = new Binance().options({
+  APIKEY: '<key>',
+  APISECRET: '<secret>'
+});
+
+
+binance.prices('BNBBTC', (error, ticker) => {
+  console.info("Price of BNB: ", ticker.BNBBTC);
+});
+
 function App() {
 
   return (
