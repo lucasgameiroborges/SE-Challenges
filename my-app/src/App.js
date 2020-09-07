@@ -8,11 +8,16 @@ const binance = new Binance().options({
   APISECRET: '<secret>'
 });
 
-
-binance.prices('BNBBTC', (error, ticker) => {
-  console.info("Price of BNB: ", ticker.BNBBTC);
+binance.websockets.depthCache(['BNBBTC'], (symbol, depth) => {
+  let bids = binance.sortBids(depth.bids);
+  let asks = binance.sortAsks(depth.asks);
+  console.info(symbol+" depth cache update");
+  console.info("bids", bids);
+  console.info("asks", asks);
+  console.info("best bid: "+binance.first(bids));
+  console.info("best ask: "+binance.first(asks));
+  console.info("last updated: " + new Date(depth.eventTime));
 });
-
 function App() {
 
   return (
