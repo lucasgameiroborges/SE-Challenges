@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  overflow: hidden;
   background-color: #282c34;
 }
 
@@ -40,7 +41,7 @@
 
 .bottom {
     background-color: #282c34;
-    height: auto;
+    height: 43%;
     position: absolute;
     bottom: 0;
 }
@@ -66,7 +67,7 @@
     position:absolute;
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    overflow: hidden;
     left: 50%;
     right: 0;
     top: 0;

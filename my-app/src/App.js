@@ -1,14 +1,9 @@
 import React from 'react';
 import GetRequest from './GetRequest.js';
+import GetOrderBook from './GetOrderBook.js';
 import './App.css';
 
-const Binance = require('node-binance-api');
-const binance = new Binance().options({
-  APIKEY: '<key>',
-  APISECRET: '<secret>'
-});
-
-binance.websockets.depthCache(['BNBBTC'], (symbol, depth) => {
+/*binance.websockets.depthCache(['BNBBTC'], (symbol, depth) => {
   let bids = binance.sortBids(depth.bids);
   let asks = binance.sortAsks(depth.asks);
   console.info(symbol+" depth cache update");
@@ -17,7 +12,7 @@ binance.websockets.depthCache(['BNBBTC'], (symbol, depth) => {
   console.info("best bid: "+binance.first(bids));
   console.info("best ask: "+binance.first(asks));
   console.info("last updated: " + new Date(depth.eventTime));
-});
+}); */
 function App() {
 
   return (
@@ -40,10 +35,12 @@ function App() {
 
         <div className = "top">
           <h1 style={{color:"lightblue"}}>Order Book</h1>
+          <h2 style={{color:"white"}}>Bids --------- Asks</h2>
+          <GetOrderBook />
         </div>
 
         <div className = "bottom">
-          <h1 style={{color:"lightblue"}}>Order Book Chart</h1>
+          <h1 style={{color:"lightblue"}}>OOOOrder Book Chartttt</h1>
         </div>
 
       </div>

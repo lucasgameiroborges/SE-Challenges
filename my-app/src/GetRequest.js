@@ -1,20 +1,38 @@
 import React from 'react';
 
+
 export class GetRequest extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            homes: []
+            homes: [],
+            depth: [],
+            chart: [],
+            candlesticks: []
         };
     }
 
     componentDidMount() {
+        this.timer = setInterval(()=> this.getItems(), 1000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
+        this.timer = null; 
+    }
+
+    getItems() {
         // Simple GET request using fetch
+        
         fetch('https://api.hashdex.io/prod/marketdata/v1/index/HDAI/last')
             .then(response => response.json())
             .then(data => this.setState({ homes: data.constituents }));
 
+        fetch('http://localhost:3030/')
+            .then(response => response.json())
+            .then(data => this.setState({ depth: data[0], chart: data[1], candlesticks: data[2] }));
+        
     }
 
     render() {
