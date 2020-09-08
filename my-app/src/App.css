@@ -31,7 +31,7 @@
 }
 
 .column {
-  flex: 50%;
+  flex: 100%;
 }
 
 .top {
@@ -51,8 +51,8 @@
     position:absolute;
     display: flex;
     flex-direction: column;
-    overflow: auto;
-    right: 50%;
+    overflow: hidden;
+    right: 100%;
     left: 0;
     top: 0;
     bottom: 30px;

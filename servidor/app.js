@@ -30,7 +30,7 @@ binance.websockets.depthCache(['BTCUSDT'], (symbol, depth) => {
 binance.websockets.chart("BTCUSDT", "1m", (symbol, interval, chart) => {
   let tick = binance.last(chart);
   const last = chart[tick].close;
-  persons[1] = chart;
+  persons[1] = binance.ohlc(chart);
   //console.info(chart);
   // Optionally convert 'chart' object to array:
   // let ohlc = binance.ohlc(chart);
