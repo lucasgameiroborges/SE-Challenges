@@ -35,19 +35,43 @@ export class GetRequest extends React.Component {
         
     }
 
+    handleClick(home) {    console.log('this is:', home.assetId);  }
+
+    mouse = event => {
+        var white = '#db3434'
+        const el = event.target
+        el.style.color = white
+    }
+
+    mouseout = event => {
+        var white = '#FFFFFF'
+        const el = event.target
+        el.style.color = white
+    }
+
     render() {
         const { homes } = this.state;
         return (
             <div className="row" style={{color:"white"}}>
             <div className="column">
                 <table>
-                    <h2>Asset</h2>
-                    <tbody>{homes.map(home => <div>{home.assetName}</div>)}</tbody>
+                    
+                    <tbody>
+                        {homes.map(home => 
+                            <div 
+                            onClick={() => this.handleClick(home)} 
+                            style={{cursor:'pointer'}}
+                            onMouseEnter={(event) => this.mouse(event)}
+                            onMouseLeave={(event) => this.mouseout(event)}>
+                            {home.assetName} 
+                            </div>)
+                        }
+                    </tbody>
                 </table>
             </div>
             <div className="column">
                 <table>
-                <h2>Price</h2>
+                
                 <tbody>{homes.map(home => <div>{parseFloat(home.currentPrice).toFixed(2)}</div>)}</tbody>
                 </table>
             </div>

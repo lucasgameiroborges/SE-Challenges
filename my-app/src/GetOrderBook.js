@@ -36,7 +36,7 @@ export class GetOrderBook extends React.Component {
             <div className="column">
                 
                 <table>
-                    <p>ammount</p>
+                    Ammount
                     <tbody className = "bids">{Object.entries(bids).map(([key, value]) => { 
                         return(<div> { parseFloat(value) } </div>)
                     })}</tbody>
@@ -45,7 +45,7 @@ export class GetOrderBook extends React.Component {
             <div className="column">
                     
                 <table>
-                    <p>price</p>
+                    Bids
                     <tbody className = "bids">{Object.entries(bids).map(([key, value]) => { 
                         return(<div> { parseFloat(key) } </div>)
                     })}</tbody>
@@ -54,7 +54,7 @@ export class GetOrderBook extends React.Component {
             <div className="column">
                 
                 <table>
-                    <p>price</p>
+                    Asks
                     <tbody className = "bids">{Object.entries(asks).map(([key, value]) => { 
                         return(<div> { parseFloat(key) } </div>)
                     })}</tbody>
@@ -63,7 +63,7 @@ export class GetOrderBook extends React.Component {
             <div className="column">
                     
                 <table>
-                    <p>ammount</p>
+                    Ammount
                     <tbody className = "bids">{Object.entries(asks).map(([key, value]) => { 
                         return(<div> { parseFloat(value) } </div>)
                     })}</tbody>

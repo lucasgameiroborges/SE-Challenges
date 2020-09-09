@@ -2,6 +2,7 @@ import React from 'react';
 import GetRequest from './GetRequest.js';
 import GetOrderBook from './GetOrderBook.js';
 import GetOrderChart from './GetOrderChart.js';
+import GetBookChart from './GetBookChart.js';
 import './App.css';
 
 
@@ -18,7 +19,7 @@ function App() {
         </div>
 
         <div className = "bottom">
-          <h1 style={{color:"lightblue"}}>--------------------------- Price Chart ---------------------------</h1>
+          <h1 style={{color:"lightblue"}}>________________________ Price Chart ________________________</h1>
           <GetOrderChart />
         </div>
 
@@ -28,13 +29,12 @@ function App() {
 
         <div className = "top">
           <h1 style={{color:"lightblue"}}>Order Book</h1>
-          <h2 style={{color:"white"}}>Bids --------- Asks</h2>
           <GetOrderBook />
         </div>
 
         <div className = "bottom">
-          <h1 style={{color:"lightblue"}}>------------------------ Order Book Chart ------------------------</h1>
-            
+          <h1 style={{color:"lightblue"}}>_____________________ Order Book Chart _____________________</h1>
+          <GetBookChart />
         </div>
 
       </div>
