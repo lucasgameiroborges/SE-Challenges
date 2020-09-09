@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export class GetRequest extends React.Component {
     constructor(props) {
         super(props);
@@ -35,7 +34,16 @@ export class GetRequest extends React.Component {
         
     }
 
-    handleClick(home) {    console.log('this is:', home.assetId);  }
+    handleClick(home) { 
+    fetch('http://localhost:3030/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(home)
+      }).then((res) => {
+    console.log(res)
+});
+    
+    }
 
     mouse = event => {
         var white = '#db3434'
