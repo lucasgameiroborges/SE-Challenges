@@ -126,15 +126,18 @@ app.post('/', jsonParser, (req,res) => {
     console.log(endpoint);
     binance.websockets.terminate(endpoint);
   }
-
+  console.log(req.body);
+  if (typeof req.body.id === 'undefined') {
   //prepara o simbolo da moeda a ser analisada
   simbolo[0] = req.body.assetId;
   simbolo[0] = simbolo[0].concat("USDT");
+} else {
+  temp = req.body.id
+}
 
   dados = websocketConnect(simbolo, temp);
 
 });
-
 // --------------------------------------------
 // ------chamada inicial do Binance API--------
 // --------------------------------------------

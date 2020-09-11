@@ -122,7 +122,7 @@ export class GetBookChart extends React.Component {
     render() {
         return (
             <div id="chart">
-  <Chart options={this.state.options} series={this.state.series} type="line" width={800} height={410} />
+  <Chart options={this.state.options} series={this.state.series} type="line"  height={410} />
 </div>);
     }
 };

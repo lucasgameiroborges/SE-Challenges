@@ -6,6 +6,21 @@ export class GetPriceChart extends React.Component {
         super(props);
 
         this.state = {
+            homes: [{id: "1m"},
+                    {id: "3m"},
+                    {id: "5m"},
+                    {id: "15m"},
+                    {id: "30m"},
+                    {id: "1h"},
+                    {id: "2h"},
+                    {id: "4h"},
+                    {id: "6h"},
+                    {id: "8h"},
+                    {id: "12h"},
+                    {id: "1d"},
+                    {id: "3d"},
+                    {id: "1w"},
+                    {id: "1M"},],
             candlesticks: [],
             series: [
               {
@@ -68,7 +83,15 @@ export class GetPriceChart extends React.Component {
               
               xaxis: {
                 categories: Array.from(Array(500).keys()),
-                
+                labels: {
+                    show: false,
+                },
+                title: {
+                  text: 'Most recent trades',
+                  style: {
+                        color: '#ffffff',
+                    }
+                }
               },
               yaxis: {
                 labels: {
@@ -122,10 +145,45 @@ export class GetPriceChart extends React.Component {
         
     }
 
+    handleClick(home) { 
+        console.log(home)
+    fetch('http://localhost:3030/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(home)
+      }).then((res) => {
+    console.log(res)
+});
+    
+    }
+
+    mouse = event => {
+        var white = '#db3434'
+        const el = event.target
+        el.style.color = white
+    }
+
+    mouseout = event => {
+        var white = '#FFFFFF'
+        const el = event.target
+        el.style.color = white
+    }
+
     render() {
+        const { homes } = this.state;
         return (
             <div id="chart">
-  <Chart options={this.state.options} series={this.state.series} type="line" height={420} />
+                            {homes.map(home => 
+                            <div 
+                            onClick={() => this.handleClick(home)} 
+                            style={{cursor:'pointer', display:"inline", color:"white"}}
+                            onMouseEnter={(event) => this.mouse(event)}
+                            onMouseLeave={(event) => this.mouseout(event)}>
+                            {home.id} - 
+                            </div>)
+                        }
+                        
+  <Chart options={this.state.options} series={this.state.series} type="line" height={390} />
 </div>);
     }
 };
