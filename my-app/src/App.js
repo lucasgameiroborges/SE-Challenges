@@ -1,7 +1,7 @@
 import React from 'react';
-import GetRequest from './GetRequest.js';
+import GetAssets from './GetAssets.js';
 import GetOrderBook from './GetOrderBook.js';
-import GetOrderChart from './GetOrderChart.js';
+import GetPriceChart from './GetPriceChart.js';
 import GetBookChart from './GetBookChart.js';
 import './App.css';
 
@@ -15,12 +15,12 @@ function App() {
 
         <div className = "top">
           <h1 style={{color:"lightblue"}}>HDAI Constituents</h1>
-          <GetRequest />
+          <GetAssets />
         </div>
 
         <div className = "bottom">
           <h1 style={{color:"lightblue"}}>________________________ Price Chart ________________________</h1>
-          <GetOrderChart />
+          <GetPriceChart />
         </div>
 
       </div>

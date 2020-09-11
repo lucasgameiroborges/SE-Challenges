@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class GetRequest extends React.Component {
+export class GetAssets extends React.Component {
     constructor(props) {
         super(props);
 
@@ -27,10 +27,6 @@ export class GetRequest extends React.Component {
         fetch('https://api.hashdex.io/prod/marketdata/v1/index/HDAI/last')
             .then(response => response.json())
             .then(data => this.setState({ homes: data.constituents }));
-
-        fetch('http://localhost:3030/')
-            .then(response => response.json())
-            .then(data => this.setState({ depth: data[0], chart: data[1], candlesticks: data[2] }));
         
     }
 
@@ -88,4 +84,4 @@ export class GetRequest extends React.Component {
     }
 };
 
-export default GetRequest;
+export default GetAssets;

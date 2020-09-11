@@ -1,5 +1,4 @@
 import React from 'react';
-import './GetOrderBook.css';
 
 export class GetOrderBook extends React.Component {
     constructor(props) {

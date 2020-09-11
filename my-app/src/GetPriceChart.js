@@ -1,7 +1,7 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
 
-export class GetOrderChart extends React.Component {
+export class GetPriceChart extends React.Component {
     constructor(props) {
         super(props);
 
@@ -130,4 +130,4 @@ export class GetOrderChart extends React.Component {
     }
 };
 
-export default GetOrderChart;
+export default GetPriceChart;
